@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Зависимы ли вы от социальных сетей</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #343a40;
+        }
+
+        .question {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .question:hover {
+            transform: translateY(-3px);
+        }
+
+        button {
+            background: #6c757d;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #5a6268;
+        }
+
+        #result {
+            display: none;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .result-type {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .result-description {
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz">
+        <div class="question">
+            <h3>1. Сколько времени вы проводите в социальных сетях?</h3>
+            <label><input type="radio" name="q1" value="1">1-2 часа</label><br>
+            <label><input type="radio" name="q1" value="2">2-3 часа</label><br>
+            <label><input type="radio" name="q1" value="3">Более 3 часов</label><br>
+        </div>
+
+        <div class="question">
+            <h3>2. Как часто вы проводите время в социальных сетях?</h3>
+            <label><input type="radio" name="q2" value="1">Редко</label><br>
+            <label><input type="radio" name="q2" value="2">Часто</label><br>
+            <label><input type="radio" name="q2" value="3">Постоянно</label>
+        </div>
+
+        <div class="question">
+            <h3>3. Для чего вы пользуетесь социальными сетями?</h3>
+            <label><input type="radio" name="q3" value="1">Для учебы/работы</label><br>
+            <label><input type="radio" name="q3" value="2">Для общения</label><br>
+            <label><input type="radio" name="q3" value="3">Для просмотра развлекательного контента</label>
+        </div>
+
+        <div class="question">
+            <h3>4. Просыпаетесь ли вы ночью, чтобы проверить социальные сети?</h3>
+            <label><input type="radio" name="q4" value="3">Да</label><br>
+            <label><input type="radio" name="q4" value="2">Иногда</label><br>
+            <label><input type="radio" name="q4" value="1">Нет</label><br>
+        </div>
+
+        <div class="question">
+            <h3>5. Откладываете ли вы важные дела, чтобы провести время в социальных сетях?</h3>
+            <label><input type="radio" name="q5" value="2">Да, иногда</label><br>
+            <label><input type="radio" name="q5" value="3">Да, часто</label><br>
+            <label><input type="radio" name="q5" value="1">Нет</label><br>
+        </div>
+
+        <div class="question">
+            <h3>6. Сравниваете ли вы свою жизнь с жизнью других людей в социальных сетях?</h3>
+            <label><input type="radio" name="q6" value="3">Да, часто</label><br>
+            <label><input type="radio" name="q6" value="2">Да, но иногда</label><br>
+            <label><input type="radio" name="q6" value="1">Нет</label><br>
+        </div>
+
+        <div class="question">
+            <h3>7. Публикуете ли вы что-то в социальных сетях, чтобы получить одобрение других?</h3>
+            <label><input type="radio" name="q7" value="3">Да, часто</label><br>
+            <label><input type="radio" name="q7" value="2">Да, иногда</label><br>
+            <label><input type="radio" name="q7" value="1">Нет</label><br>
+        </div>
+
+        <div class="question">
+            <h3>8. Используете ли вы социальные сети как борьбу со скукой и стрессом?</h3>
+            <label><input type="radio" name="q8" value="3"> Да, часто</label><br>
+            <label><input type="radio" name="q8" value="2"> Да, иногда</label><br>
+            <label><input type="radio" name="q8" value="1"> Нет</label><br>
+        </div>
+
+        <div class="question">
+            <h3>9. Вам нравится общение в социальных сетях больше, чем в реальной жизни?</h3>
+            <label><input type="radio" name="q9" value="3">Да</label><br>
+            <label><input type="radio" name="q9" value="1">Нет</label><br>
+            <label><input type="radio" name="q9" value="2">Трудно сказать/и то, и то нравится</label><br>
+        </div>
+
+        <div class="question">
+            <h3>10. На основе ваших ответов, вы считаете себя зависимым от социальных сетей?</h3>
+            <label><input type="radio" name="q10" value="3">Думаю, что да</label><br>
+            <label><input type="radio" name="q10" value="1">Думаю, что нет</label><br>
+            <label><input type="radio" name="q10" value="2">Знал бы, не проходил тест</label><br>
+        </div>
+
+        <button onclick="showResult()">Узнать результат</button>
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+        const results = {
+            3: {
+                title: "Вы не зависимы от социальных сетей, и это очень хорошо. Наверняка у вас есть другие важные дела.",
+                description: "Вы молодцы!"
+            },
+            5: {
+                title: "Вы скорее не зависимы от социальных сетей и проводите время в Интернете от скуки.",
+                description: "Вы молодцы!"
+            },
+            7: {
+                title: "Возможно, вы всё же зависимы от социальных сетей, но не очень сильно.",
+                description: "Вам нужно побольше проводить время в реальном мире и найти занятие вам по душе."
+            },
+            10: {
+                title: "Вы зависимы от социальных сетей.",
+                description: "Вам нужно ограничить себя в пользовании социальными сетями, найти себе занятие по душе, почаще выходить из дома и гулять на свежем воздухе."
+            }
+        };
+
+        function calculateScore() {
+            let score = 0;
+            const questions = document.querySelectorAll('.question');
+
+            questions.forEach(question => {
+                const selected = question.querySelector('input:checked');
+                if (selected) score += parseInt(selected.value);
+            });
+
+            return score;
+        }
+
+        function getResultType(score) {
+            if (score <= 10) return 3;
+            if (score <= 20) return 5;
+            if (score <= 30) return 7;
+            return 30;
+        }
+
+        function showResult() {
+            const score = calculateScore();
+            const resultType = getResultType(score);
+            const resultDiv = document.getElementById('result');
+
+            if (score === 0) {
+                alert("Пожалуйста, ответьте на все вопросы!");
+                return;
+            }
+
+            resultDiv.innerHTML = `
+                <div class="result-type">${results[resultType].title}</div>
+                <div class="result-description">
+                    <p>${results[resultType].description}</p>
+                    <p>Ваш результат: ${score} из 30 баллов</p>
+                </div>
+            `;
+
+            resultDiv.style.display = 'block';
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
